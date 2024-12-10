@@ -1,0 +1,34 @@
+﻿@using MinhaPrimeiraAplicacaoWeb.Models.Jogador
+@model JogadoresModel;
+<div>
+    <h1>Jogadores</h1>
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Clube</th>
+                <th>Posição</th>
+                <th>Idade</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var jogador in Model.Jogadores)
+            {
+                <tr>
+                    <td>@jogador.ID</td>
+                    <td>@jogador.Nome</td>
+                    <td>@jogador.Clube</td>
+                    <td>@jogador.Posicao</td>
+                    <td>@jogador.Idade</td>
+                    <td>
+                        <a type="button" class="btn btn-warning" asp-controller="Jogadores" asp-action="Record" asp-route-id="@jogador.ID">Editar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

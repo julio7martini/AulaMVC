@@ -1,0 +1,23 @@
+﻿@using MinhaPrimeiraAplicacaoWeb.Models.Carros
+@model CarroModel
+<div>
+    <h3>
+        Carro
+    </h3>
+    <form>
+        <div class="form-group">
+            <label>Modelo</label>
+            <input type="text" id="nome" class="form-control" asp-for="Modelo" />
+        </div>
+
+        <div class="form-group">
+            <label>Placa</label>
+            <input type="text" id="placa" class="form-control" asp-for="Placa" />
+        </div>
+
+        <div class="form-group">
+            <label>Ano</label>
+            <input type="text" id="ano" class="form-control" asp-for="Ano" />
+        </div>
+    </form>
+</div>
