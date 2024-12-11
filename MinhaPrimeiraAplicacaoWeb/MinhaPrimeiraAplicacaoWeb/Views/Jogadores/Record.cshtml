@@ -4,7 +4,8 @@
     <h3>
         Jogador
     </h3>
-    <form>
+    <form asp-controller="Jogadores" asp-action="Save" method="post">
+        <input type="hidden" asp-for="ID">
         <div class="form-group">
             <label>Nome</label>
             <input type="text" id="nome" class="form-control" asp-for="Nome" />
@@ -24,5 +25,8 @@
             <label>Idade</label>
             <input type="text" id="idade" class="form-control" asp-for="Idade" />
         </div>
+       <br>
+        <button type="submit" class="btn btn-primary float-end m-1">Salvar</button>
+        <a type="button" class="btn btn-secondary float-end m-1" asp-controller="Jogadores" asp-action="Index">Voltar</a>
     </form>
 </div>

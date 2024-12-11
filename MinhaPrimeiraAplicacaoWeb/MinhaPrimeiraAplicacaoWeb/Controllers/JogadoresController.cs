@@ -6,7 +6,7 @@ namespace MinhaPrimeiraAplicacaoWeb.Controllers
     public class JogadoresController : Controller
     {
 
-        public List<JogadorModel> _Jogadores = new List<JogadorModel>()
+        static List<JogadorModel> _Jogadores = new List<JogadorModel>()
         {
 
                 new JogadorModel() { ID = 1, Nome = "Gabigol", Clube = "Flamengo", Posicao = "Atacante" , Idade = 29},
@@ -24,8 +24,21 @@ namespace MinhaPrimeiraAplicacaoWeb.Controllers
 
         public IActionResult Record(long id)
         {
-            var jogador = _Jogadores.FirstOrDefault(x => x.ID == id);
-            return View(jogador);
+            var model = _Jogadores.FirstOrDefault(jogador => jogador.ID == id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Save(JogadorModel model)
+        {
+           var jogador = _Jogadores.FirstOrDefault(i => i.ID == model.ID);
+
+            jogador.Nome = model.Nome;
+            jogador.Clube = model.Clube;
+            jogador.Posicao = model.Posicao;
+            jogador.Idade = model.Idade;
+
+            return RedirectToAction("Index");
         }
     }
 }
